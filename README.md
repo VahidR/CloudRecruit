@@ -1,6 +1,6 @@
 ## CloudRecruit
 
-a Cloud based Recruiting App on top of Salesforce platform
+a small Cloud based Recruiting App on top of Salesforce platform
 
 ####Cloning
 clone the repository by using: 
