@@ -3,7 +3,8 @@
 a Cloud based Recruiting App on top of Salesforce platform
 
 ####Cloning
-clone the repository by using 
+clone the repository by using: 
+
      $ git clone git@github.com:vahidR/CloudRecruit.git
 
 ####Installation
