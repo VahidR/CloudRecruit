@@ -1,0 +1,40 @@
+<apex:page controller="recruitsController">
+    <apex:messages />
+    <apex:pageBlock title="A Small Recruitment App">
+        <apex:pageBlockSection title="Add a new Candidate">
+            <apex:form >
+                <p><apex:outputLabel value="First Name" />  &nbsp;<apex:inputText value="{!FirstName}"/></p>
+                <p><apex:outputLabel value="Last Name" />  &nbsp;<apex:inputText value="{!LastName}"/></p>
+                <p><apex:outputLabel value="Position" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<apex:inputText value="{!Title}"/></p>
+                <p><apex:outputLabel value="Company" /> &nbsp;&nbsp;&nbsp;<apex:inputText value="{!Company}"/></p>
+                <apex:commandButton action="{!add}" value="Add Canditate" />
+            </apex:form>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="List of Leads">
+           <apex:form >         
+            <apex:pageBlockTable value="{!allContacts}" var="c" >
+                <apex:column value="{!c.id}" headervalue="ID"/>
+                <apex:column value="{!c.FirstName}" headervalue="First Name"/>
+                <apex:column value="{!c.LastName}" headervalue="Last Name" />
+                <apex:column value="{!c.Title}" headervalue="Title"/>
+                <apex:column value="{!c.Company}" headervalue="Company"/>
+                <apex:column >
+                    <apex:commandButton action="{!addToRecruits}" value="Recruit" reRender="all">
+                        <apex:param assignTo="{!leadID}" name="leadID" value="{!c.id}" />
+                    </apex:commandButton>
+                </apex:column>
+            </apex:pageBlockTable>
+          </apex:form>  
+        </apex:pageBlockSection>
+       
+        <apex:pageBlockSection title="List of Recruits">
+           <apex:form >         
+            <apex:pageBlockTable value="{!allRecruits}" var="r" >
+                <apex:column value="{!r.FirstName__c}" headervalue="First Name"/>
+                <apex:column value="{!r.LastName__c}" headervalue="Last Name"/>
+            </apex:pageBlockTable>
+          </apex:form>  
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+
+</apex:page>
